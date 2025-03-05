@@ -1,0 +1,19 @@
+.language-chooser-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.language-chooser {
+  background-color: transparent;
+  border: none;
+  color: darkgreen;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.language-chooser:not(:last-child) {
+  margin-right: 1rem;
+}

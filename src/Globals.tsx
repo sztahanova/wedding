@@ -1,0 +1,9 @@
+export const NUMBER_OF_DAYS_IN_WEEK = 7;
+export const NUMBER_OF_MINUTES_IN_HOUR = 60;
+export const NUMBER_OF_SECONDS_IN_MINUTE = 60;
+export const NUMBER_OF_MILLISECONDS_IN_SECOND = 1000;
+
+export const SMALL_SCREEN_BREAKPOINT = 640;
+export const MEDIUM_SCREEN_BREAKPOINT = 1100;
+
+export const WEDDING_DATE = new Date(2025, 9, 25, 23, 59, 59);
