@@ -1,0 +1,41 @@
+{
+  "scale": 1,
+  "primaryColor": "darkgreen",
+  "isThemeDependentPrimaryShade": false,
+  "primaryShade": 4,
+  "colors": {
+    "darkgreen": [
+      "#a7fca5",
+      "#60fd59",
+      "#2efd20",
+      "#16b00d",
+      "#046402",
+      "#006400",
+      "#035102",
+      "#023f02",
+      "#012c01",
+      "#011901"
+    ],
+    "gold": [
+      "#fcf3ca",
+      "#fdec99",
+      "#fee567",
+      "#ffde37",
+      "#ffd70b",
+      "#ffd700",
+      "#c5a707",
+      "#8c7604",
+      "#534602",
+      "#191502"
+    ]
+  },
+  "autoContrast": false,
+  "defaultGradient": {
+    "from": "darkgreen",
+    "to": "gold",
+    "deg": 135
+  },
+  "defaultRadius": "lg",
+  "focusRing": "auto",
+  "cursorType": "default"
+}

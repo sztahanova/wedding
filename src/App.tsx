@@ -3,7 +3,7 @@ import "./App.css";
 import { HomePage } from "./pages/HomePage";
 import { OnePage } from "./pages/OnePage";
 
-function App() {
+export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<OnePage />} />
@@ -11,6 +11,4 @@ function App() {
       <Route path="*" element={<OnePage />} />
     </Routes>
   );
-}
-
-export default App;
+};

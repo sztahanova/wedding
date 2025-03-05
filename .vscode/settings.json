@@ -21,5 +21,6 @@
   "peacock.color": "#87cc19",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
-  }
+  },
+  "cssVariables.lookupFiles": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "node_modules/@mantine/core/styles.css"]
 }
