@@ -38,6 +38,8 @@ function App() {
 
   setInterval(updateCountdown, NUMBER_OF_MILLISECONDS_IN_SECOND * NUMBER_OF_SECONDS_IN_MINUTE * NUMBER_OF_MINUTES_IN_HOUR);
 
+  const changeLanguageFactory = useCallback((language: string) => () => i18n.changeLanguage(language), [i18n]);
+
   return (
     <div className="root">
       <img
@@ -45,7 +47,17 @@ function App() {
         className="background-image"
         alt="Zita és Péter"
       />
-
+      <div className="language-chooser-container">
+        <button className="language-chooser" onClick={changeLanguageFactory("hu")}>
+          HU
+        </button>
+        <button className="language-chooser" onClick={changeLanguageFactory("en")}>
+          EN
+        </button>
+        <button className="language-chooser" onClick={changeLanguageFactory("ro")}>
+          RO
+        </button>
+      </div>
       <div className="main-container">
         {isLargeScreen ? (
           <div className="fleur-de-leah-regular highlighted-text main-text zita-peter">Zita &#9901; Péter</div>

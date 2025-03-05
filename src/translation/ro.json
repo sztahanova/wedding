@@ -2,11 +2,11 @@
   "translation": {
     "ZitaAndPeti": "Zita și Péter",
     "months_one": "{{count}} lună",
-    "months_other": "{{count}} luni",
+    "months_few": "{{count}} luni",
     "weeks_one": "{{count}} săptămână",
-    "weeks_other": "{{count}} săptămâni",
+    "weeks_few": "{{count}} săptămâni",
     "days_one": "{{count}} zi",
-    "days_other": "{{count}} zi",
+    "days_few": "{{count}} zile",
     "countdown": "Au mai rămas $t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} })!"
   }
 }
