@@ -1,0 +1,9 @@
+{
+  "translation": {
+    "ZitaAndPeti": "Zita és Péter",
+    "months": "{{count}} hónap",
+    "weeks": "{{count}} hét",
+    "days": "{{count}} nap",
+    "countdown": "Még $t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} })!"
+  }
+}

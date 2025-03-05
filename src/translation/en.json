@@ -1,0 +1,12 @@
+{
+  "translation": {
+    "ZitaAndPeti": "Zita and Péter",
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months",
+    "weeks_one": "{{count}} week",
+    "weeks_other": "{{count}} weeks",
+    "days_one": "{{count}} day",
+    "days_other": "{{count}} days",
+    "countdown": "$t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} }) left!"
+  }
+}
