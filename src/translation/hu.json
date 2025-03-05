@@ -1,9 +1,15 @@
 {
   "translation": {
-    "ZitaAndPeti": "Zita és Péter",
+    "countdown": "Még $t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} })!",
+    "days": "{{count}} nap",
     "months": "{{count}} hónap",
     "weeks": "{{count}} hét",
-    "days": "{{count}} nap",
-    "countdown": "Még $t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} })!"
+    "ZitaAndPeti": "Zita és Péter",
+    "accommodation": "Szállás",
+    "faq": "GYIK",
+    "gallery": "Képek",
+    "home": "Kezdőlap",
+    "rsvp": "Visszaigazolás",
+    "travel": "Utazás"
   }
 }

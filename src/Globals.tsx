@@ -7,3 +7,10 @@ export const SMALL_SCREEN_BREAKPOINT = 640;
 export const MEDIUM_SCREEN_BREAKPOINT = 1100;
 
 export const WEDDING_DATE = new Date(2025, 9, 25, 23, 59, 59);
+
+export const ACCOMMODATION_LINK = "/accommodation";
+export const FAQ_LINK = "/faq";
+export const GALLERY_LINK = "/gallery";
+export const HOME_LINK = "/";
+export const RSVP_LINK = "/rsvp";
+export const TRAVEL_LINK = "/travel";

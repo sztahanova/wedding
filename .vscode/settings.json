@@ -22,5 +22,7 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
-  "cssVariables.lookupFiles": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "node_modules/@mantine/core/styles.css"]
+  "cssVariables.lookupFiles": ["**/*.css", "**/*.scss", "**/*.sass", "**/*.less", "node_modules/@mantine/core/styles.css"],
+  "cssModules.camelCase": true,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

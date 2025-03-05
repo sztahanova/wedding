@@ -1,0 +1,14 @@
+.link {
+}
+
+.header {
+  height: 64px;
+  width: 100%;
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

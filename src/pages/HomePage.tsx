@@ -1,3 +1,10 @@
+import { Header } from "../components/header/Header";
+import classNames from "./HomePage.module.css";
+
 export const HomePage = () => {
-  return null;
+  return (
+    <div className={classNames.root}>
+      <Header />
+    </div>
+  );
 };

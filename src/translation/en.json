@@ -1,12 +1,18 @@
 {
   "translation": {
-    "ZitaAndPeti": "Zita and Péter",
-    "months_one": "{{count}} month",
-    "months_other": "{{count}} months",
-    "weeks_one": "{{count}} week",
-    "weeks_other": "{{count}} weeks",
+    "accommodation": "Accommodation",
+    "countdown": "$t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} }) left!",
     "days_one": "{{count}} day",
     "days_other": "{{count}} days",
-    "countdown": "$t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} }) left!"
+    "faq": "FAQ",
+    "gallery": "Pictures",
+    "home": "Home",
+    "months_one": "{{count}} month",
+    "months_other": "{{count}} months",
+    "rsvp": "RSVP",
+    "travel": "Travel",
+    "weeks_one": "{{count}} week",
+    "weeks_other": "{{count}} weeks",
+    "ZitaAndPeti": "Zita and Péter"
   }
 }
