@@ -1,4 +1,25 @@
 .link {
+  background-color: transparent;
+  border: none;
+  color: darkgreen;
+  cursor: pointer;
+
+  display: block;
+  line-height: 1;
+  padding: 8px 12px;
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  font-size: var(--mantine-font-size-xl);
+  font-weight: 600;
+
+  @mixin hover {
+    background-color: gold;
+  }
+
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: darkgreen;
+    color: var(--mantine-color-white);
+  }
 }
 
 .header {

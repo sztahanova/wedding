@@ -1,0 +1,17 @@
+.language-button {
+  padding: 8px 12px;
+  height: 36px;
+  width: 44px;
+
+  @mixin hover {
+    background-color: gold;
+  }
+
+  &:active {
+    background-color: gold;
+  }
+}
+
+.menu-item {
+  margin: 0;
+}

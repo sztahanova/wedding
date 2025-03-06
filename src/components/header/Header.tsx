@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router";
 import { ACCOMMODATION_LINK, FAQ_LINK, GALLERY_LINK, HOME_LINK, RSVP_LINK, TRAVEL_LINK } from "../../Globals";
+import { LanguageChooserMenu } from "../language-chooser/LanguageChooserMenu";
 import { WeddingLogo } from "../logo/WeddingLogo";
 import classNames from "./Header.module.css";
 
@@ -21,27 +22,29 @@ export const Header = () => {
       { label: t("gallery"), link: GALLERY_LINK },
       { label: t("rsvp"), link: RSVP_LINK },
     ],
-    [],
+    [t],
   );
 
   const menus = useMemo(
-    () =>
-      pages.map(({ label, link }) => (
+    () => [
+      ...pages.map(({ label, link }) => (
         <NavLink key={label} to={link} className={classNames.link}>
           {label}
         </NavLink>
       )),
-    [],
+      <LanguageChooserMenu key="language-chooser-menu" />,
+    ],
+    [pages],
   );
 
   return (
     <header className={classNames.header}>
-      <Container size="md" className={classNames.inner}>
+      <Container fluid className={classNames.inner}>
         <WeddingLogo />
-        <Group gap={5} visibleFrom="xs">
+        <Group gap="xs" visibleFrom="md">
           {menus}
         </Group>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="md" />
       </Container>
     </header>
   );

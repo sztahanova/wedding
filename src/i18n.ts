@@ -1,9 +1,11 @@
 import i18n, { InitOptions } from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+import { initReactI18next } from "react-i18next";
 import en from "./translation/en.json";
 import hu from "./translation/hu.json";
 import ro from "./translation/ro.json";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector";
+
+export const I18N_SUPPORTED_LANGUAGES = ["hu", "en", "ro"];
 
 const resources = {
   en,
@@ -14,7 +16,7 @@ const resources = {
 const i18nOptions: InitOptions = {
   debug: true,
   resources,
-  supportedLngs: ["hu", "en", "ro"],
+  supportedLngs: I18N_SUPPORTED_LANGUAGES,
   fallbackLng: "hu",
   returnObjects: true,
   react: {
