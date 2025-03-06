@@ -6,7 +6,7 @@ export const NUMBER_OF_MILLISECONDS_IN_SECOND = 1000;
 export const SMALL_SCREEN_BREAKPOINT = 640;
 export const MEDIUM_SCREEN_BREAKPOINT = 1100;
 
-export const WEDDING_DATE = new Date(2025, 9, 25, 23, 59, 59);
+export const WEDDING_DATE = new Date(2025, 9, 25, 11, 0, 0);
 
 export const ACCOMMODATION_LINK = "/accommodation";
 export const FAQ_LINK = "/faq";

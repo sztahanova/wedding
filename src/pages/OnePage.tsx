@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
-import { Countdown } from "../components/countdown/Countdown";
+import { SimpleCountdown } from "../components/countdown/SimpleCountdown";
 import { LanguageChooser } from "../components/language-chooser/LanguageChooser";
 import {
   MEDIUM_SCREEN_BREAKPOINT,
@@ -39,7 +39,7 @@ export const OnePage = () => {
         <div className="fleur-de-leah-regular highlighted-text main-text date">
           {WEDDING_DATE.toLocaleDateString(i18n.language, { year: "numeric", month: "long", day: "2-digit" })}
         </div>
-        <Countdown />
+        <SimpleCountdown />
       </div>
     </div>
   );

@@ -1,18 +1,21 @@
 {
   "translation": {
     "accommodation": "Accommodation",
-    "countdown": "$t(months, {\"count\": {{months}} }), $t(weeks, {\"count\": {{weeks}} }), $t(days, {\"count\": {{days}} }) left!",
-    "days_one": "{{count}} day",
-    "days_other": "{{count}} days",
+    "countdown": "{{months}} $t(months, {\"count\": {{months}} }), {{weeks}} $t(weeks, {\"count\": {{weeks}} }), {{days}} $t(days, {\"count\": {{days}} }), {{hours}} $t(hours, {\"count\": {{hours}} }) left!",
+    "days_one": "day",
+    "days_other": "days",
     "faq": "FAQ",
     "gallery": "Pictures",
     "home": "Home",
-    "months_one": "{{count}} month",
-    "months_other": "{{count}} months",
+    "hours_one": "hour",
+    "hours_other": "hours",
+    "months_one": "month",
+    "months_other": "months",
     "rsvp": "RSVP",
+    "TgM": "Târgu Mureș",
     "travel": "Travel",
-    "weeks_one": "{{count}} week",
-    "weeks_other": "{{count}} weeks",
+    "weeks_one": "week",
+    "weeks_other": "weeks",
     "ZitaAndPeti": "Zita and Péter"
   }
 }

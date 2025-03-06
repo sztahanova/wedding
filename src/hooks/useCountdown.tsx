@@ -8,8 +8,18 @@ import {
   WEDDING_DATE,
 } from "../Globals";
 
-export const useCountdown = (): Duration => {
-  const [countdown, setCountdown] = useState<Duration>({ years: 0, months: 0, weeks: 0, days: 0, hours: 0, minutes: 0, seconds: 0 });
+const DEFAULT_DURATION: Required<Duration> = {
+  years: 0,
+  months: 0,
+  weeks: 0,
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+};
+
+export const useCountdown = (): Required<Duration> => {
+  const [countdown, setCountdown] = useState<Required<Duration>>(DEFAULT_DURATION);
 
   useEffect(() => {
     updateCountdown();
@@ -22,7 +32,7 @@ export const useCountdown = (): Duration => {
     const weeks = Math.floor((rawDuration.days ?? 0) / NUMBER_OF_DAYS_IN_WEEK);
     const days = (rawDuration.days ?? 0) % NUMBER_OF_DAYS_IN_WEEK;
 
-    setCountdown({ ...rawDuration, weeks, days });
+    setCountdown({ ...DEFAULT_DURATION, ...rawDuration, weeks, days });
   }, []);
 
   setInterval(updateCountdown, NUMBER_OF_MILLISECONDS_IN_SECOND * NUMBER_OF_SECONDS_IN_MINUTE * NUMBER_OF_MINUTES_IN_HOUR);

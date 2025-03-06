@@ -1,4 +1,4 @@
-import { Burger, Container, Group } from "@mantine/core";
+import { Burger, Container, Group, Overlay } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
@@ -39,8 +39,10 @@ export const Header = () => {
 
   return (
     <header className={classNames.header}>
+      <Overlay color="gold" opacity={0.25} zIndex={1} style={{ backgroundColor: "gold" }} />
+
       <Container fluid className={classNames.inner}>
-        <WeddingLogo />
+        <WeddingLogo fontSize="54px" width={250} isClickable />
         <Group gap="xs" visibleFrom="md">
           {menus}
         </Group>

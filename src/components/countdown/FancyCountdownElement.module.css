@@ -1,0 +1,21 @@
+.root {
+  border: 3px solid darkgreen;
+  width: 10rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  color: rgb(0, 60, 0);
+  font-size: 5rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+.label {
+  color: rgb(0, 60, 0);
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 600;
+}
