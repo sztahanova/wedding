@@ -2,7 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useMediaQuery } from "react-responsive";
 import { Countdown } from "../components/countdown/Countdown";
 import { LanguageChooser } from "../components/language-chooser/LanguageChooser";
-import { MEDIUM_SCREEN_BREAKPOINT, SMALL_SCREEN_BREAKPOINT, WEDDING_DATE } from "../Globals";
+import {
+  MEDIUM_SCREEN_BREAKPOINT,
+  SMALL_SCREEN_BREAKPOINT,
+  WEDDING_DATE,
+  ZITA_PETI_ALBANIA_LANDSCAPE,
+  ZITA_PETI_ALBANIA_PORTRAIT,
+} from "../Globals";
 
 export const OnePage = () => {
   const { i18n } = useTranslation();
@@ -13,7 +19,7 @@ export const OnePage = () => {
   return (
     <div className="root">
       <img
-        src={isSmallScreen ? "/photos/Zita_Peti_Albania_20230810_640x922.jpg" : "/photos/Zita_Peti_Albania_20230810.jpg"}
+        src={isSmallScreen ? ZITA_PETI_ALBANIA_PORTRAIT : ZITA_PETI_ALBANIA_LANDSCAPE}
         className="background-image"
         alt="Zita és Péter"
       />

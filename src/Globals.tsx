@@ -11,6 +11,9 @@ export const WEDDING_DATE = new Date(2025, 9, 25, 23, 59, 59);
 export const ACCOMMODATION_LINK = "/accommodation";
 export const FAQ_LINK = "/faq";
 export const GALLERY_LINK = "/gallery";
-export const HOME_LINK = "/";
+export const HOME_LINK = "/home";
 export const RSVP_LINK = "/rsvp";
 export const TRAVEL_LINK = "/travel";
+
+export const ZITA_PETI_ALBANIA_LANDSCAPE = "/photos/Zita_Peti_Albania_20230810.jpg";
+export const ZITA_PETI_ALBANIA_PORTRAIT = "/photos/Zita_Peti_Albania_20230810_640x922.jpg";
