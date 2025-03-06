@@ -10,9 +10,9 @@ export const LanguageChooserMenu = () => {
   const changeLanguageFactory = useCallback((language: string) => () => i18n.changeLanguage(language), [i18n]);
 
   return (
-    <Menu classNames={{ itemSection: classNames["menu-item"] }}>
+    <Menu classNames={{ itemSection: classNames.menuItem }}>
       <Menu.Target>
-        <ActionIcon variant="transparent" className={classNames["language-button"]}>
+        <ActionIcon variant="transparent" className={classNames.languageButton}>
           <span className={`fi fi-${i18n.language === "en" ? "gb" : i18n.language}`} />
         </ActionIcon>
       </Menu.Target>

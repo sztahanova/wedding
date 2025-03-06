@@ -26,7 +26,8 @@
       {
         "name": "typescript-plugin-css-modules",
         "options": {
-          "classnameTransforms": "camelCase"
+          "classnameTransform": "camelCase",
+          "goToDefinition": true
         }
       }
     ]
