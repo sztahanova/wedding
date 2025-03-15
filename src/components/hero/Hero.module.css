@@ -1,29 +1,49 @@
-.root {
+.hero-root {
   position: relative;
-  padding-top: 100px;
-  padding-bottom: 80px;
   background-image: url("/photos/Zita_Peti_Albania_20230810.jpg");
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 100%;
-
-  @media (max-width: $mantine-breakpoint-xs) {
-    padding-top: 80px;
-    padding-bottom: 50px;
-  }
 }
 
-.container {
+.hero-container {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
+  padding: 10vw 0;
 }
 
-.date-and-loc {
+.hero-wedding-logo {
+  font-size: 14rem;
+  padding: 4rem;
+  line-height: 8rem;
+
+  @media only screen and (max-width: 1180px) {
+    font-size: 10rem;
+    padding: 2rem;
+  }
+
+  @media only screen and (max-width: 640px) {
+    font-size: 25vw;
+    line-height: 18vw;
+  }
+}
+
+.hero-date-and-loc {
   font-size: 4rem;
   font-weight: 600;
   color: darkgreen;
   padding: 1rem 0;
+  text-align: center;
+
+  @media only screen and (max-width: 1180px) {
+    font-size: 3rem;
+    padding: 0.5rem;
+  }
+
+  @media only screen and (max-width: 640px) {
+    font-size: 10vw;
+  }
 }

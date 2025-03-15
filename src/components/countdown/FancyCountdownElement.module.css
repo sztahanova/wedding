@@ -1,21 +1,27 @@
-.root {
+.countdown-element-root {
   border: 3px solid darkgreen;
-  width: 10rem;
-  height: 10rem;
+  width: 15vw;
+  height: 15vw;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 1180px) {
+    font-size: 10rem;
+    padding: 2rem;
+  }
 }
 
-.value {
+.countdown-element-value {
   color: rgb(0, 60, 0);
-  font-size: 5rem;
+  font-size: 8vw;
   text-align: center;
   font-weight: 800;
+  line-height: 2rem;
 }
 
-.label {
+.countdown-element-label {
   color: rgb(0, 60, 0);
-  font-size: 1.2rem;
+  font-size: 2.5vw;
   text-align: center;
   font-weight: 600;
 }

@@ -4,9 +4,9 @@ import { FancyCountdownElementProps } from "./FancyCountdownElement.types";
 
 export const FancyCountdownElement = ({ value, text }: FancyCountdownElementProps) => {
   return (
-    <Center className={classNames.root}>
-      <Text className={`fleur-de-leah-regular ${classNames.value}`}>{value}</Text>
-      <Text className={classNames.label}>{text}</Text>
+    <Center className={classNames.countdownElementRoot}>
+      <Text className={`fleur-de-leah-regular ${classNames.countdownElementValue}`}>{value}</Text>
+      <Text className={classNames.countdownElementLabel}>{text}</Text>
     </Center>
   );
 };

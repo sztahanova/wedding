@@ -1,6 +1,7 @@
 import { Group } from "@mantine/core";
 import { useTranslation } from "react-i18next";
 import { useCountdown } from "../../hooks/useCountdown";
+import classnames from "./FancyCountdown.module.css";
 import { FancyCountdownElement } from "./FancyCountdownElement";
 
 export const FancyCountdown = () => {
@@ -9,7 +10,7 @@ export const FancyCountdown = () => {
 
   return (
     <div>
-      <Group justify="center" gap="xl">
+      <Group justify="center" gap="xl" className={classnames.container}>
         <FancyCountdownElement value={months} text={t("months", { count: months })} />
         <FancyCountdownElement value={weeks} text={t("weeks", { count: weeks })} />
         <FancyCountdownElement value={days} text={t("days", { count: days })} />

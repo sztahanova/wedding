@@ -4,18 +4,28 @@ import { HOME_LINK } from "../../Globals";
 import classNames from "./WeddingLogo.module.css";
 import { WeddingLogoProps } from "./WeddingLogo.types";
 
-export const WeddingLogo = ({ fontSize, width, isClickable = false }: WeddingLogoProps) => {
+export const WeddingLogo = ({ className, isClickable = false, isSingleLine = true }: WeddingLogoProps) => {
   const navigate = useNavigate();
 
   const navigateToHome = useCallback(() => navigate(HOME_LINK), [navigate]);
 
   return (
     <div
-      className={`fleur-de-leah-regular highlighted-text ${classNames.weddingLogoText}`}
-      style={{ fontSize, width, cursor: isClickable ? "pointer" : undefined }}
+      className={`fleur-de-leah-regular ${classNames.weddingLogoText} ${className}`}
+      style={{ cursor: isClickable ? "pointer" : undefined }}
       onClick={isClickable ? navigateToHome : undefined}
     >
-      Zita &#9901; Péter
+      {isSingleLine ? (
+        <>Zita &#9901; Péter</>
+      ) : (
+        <>
+          Zita
+          <br />
+          &#9901;
+          <br />
+          Péter
+        </>
+      )}
     </div>
   );
 };

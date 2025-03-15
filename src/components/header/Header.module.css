@@ -1,3 +1,31 @@
+.header-root {
+  position: absolute;
+  height: 64px;
+  width: 100%;
+  background-color: transparent;
+
+  @media only screen and (max-width: 640px) {
+    height: 48px;
+  }
+}
+
+.header-container {
+  position: sticky;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.header-logo {
+  font-size: 50px;
+
+  @media only screen and (max-width: 640px) {
+    font-size: 36px;
+  }
+}
+
 .link {
   background-color: transparent;
   border: none;
@@ -20,20 +48,4 @@
     background-color: darkgreen;
     color: var(--mantine-color-white);
   }
-}
-
-.header {
-  position: absolute;
-  height: 64px;
-  width: 100%;
-  background-color: transparent;
-}
-
-.inner {
-  position: sticky;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
 }

@@ -1,10 +1,10 @@
+import { useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
-import { useMediaQuery } from "react-responsive";
 import { SimpleCountdown } from "../components/countdown/SimpleCountdown";
 import { LanguageChooser } from "../components/language-chooser/LanguageChooser";
 import {
+  EXTRA_SMALL_SCREEN_BREAKPOINT,
   MEDIUM_SCREEN_BREAKPOINT,
-  SMALL_SCREEN_BREAKPOINT,
   WEDDING_DATE,
   ZITA_PETI_ALBANIA_LANDSCAPE,
   ZITA_PETI_ALBANIA_PORTRAIT,
@@ -13,13 +13,13 @@ import {
 export const OnePage = () => {
   const { i18n } = useTranslation();
 
-  const isSmallScreen = useMediaQuery({ query: `(max-width: ${SMALL_SCREEN_BREAKPOINT}px)` });
-  const isLargeScreen = useMediaQuery({ query: `(min-width: ${MEDIUM_SCREEN_BREAKPOINT + 1}px)` });
+  const isExtraSmallScreen = useMediaQuery(`(max-width: ${EXTRA_SMALL_SCREEN_BREAKPOINT}px)`);
+  const isLargeScreen = useMediaQuery(`(min-width: ${MEDIUM_SCREEN_BREAKPOINT + 1}px)`);
 
   return (
     <div className="root">
       <img
-        src={isSmallScreen ? ZITA_PETI_ALBANIA_PORTRAIT : ZITA_PETI_ALBANIA_LANDSCAPE}
+        src={isExtraSmallScreen ? ZITA_PETI_ALBANIA_PORTRAIT : ZITA_PETI_ALBANIA_LANDSCAPE}
         className="background-image"
         alt="Zita és Péter"
       />

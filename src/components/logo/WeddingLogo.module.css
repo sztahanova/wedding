@@ -1,5 +1,6 @@
 .wedding-logo-text {
-  min-width: 250px;
+  width: fit-content;
+  text-align: center;
   color: darkgreen;
   text-shadow:
     2px 2px 2px gold,

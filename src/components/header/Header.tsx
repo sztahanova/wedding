@@ -1,17 +1,26 @@
 import { Burger, Container, Group, Overlay } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
-import { ACCOMMODATION_LINK, FAQ_LINK, GALLERY_LINK, HOME_LINK, RSVP_LINK, TRAVEL_LINK } from "../../Globals";
+import {
+  ACCOMMODATION_LINK,
+  EXTRA_SMALL_SCREEN_BREAKPOINT,
+  FAQ_LINK,
+  GALLERY_LINK,
+  HOME_LINK,
+  RSVP_LINK,
+  TRAVEL_LINK,
+} from "../../Globals";
 import { LanguageChooserMenu } from "../language-chooser/LanguageChooserMenu";
 import { WeddingLogo } from "../logo/WeddingLogo";
 import classNames from "./Header.module.css";
 
 export const Header = () => {
   const { t } = useTranslation();
-
   const [opened, { toggle }] = useDisclosure(false);
+
+  const isExtraSmallScreen = useMediaQuery(`(max-width: ${EXTRA_SMALL_SCREEN_BREAKPOINT}px)`);
 
   const pages = useMemo(
     () => [
@@ -38,15 +47,15 @@ export const Header = () => {
   );
 
   return (
-    <header className={classNames.header}>
+    <header className={classNames.headerRoot}>
       <Overlay color="gold" opacity={0.25} zIndex={1} style={{ backgroundColor: "gold" }} />
 
-      <Container fluid className={classNames.inner}>
-        <WeddingLogo fontSize="54px" width={250} isClickable />
+      <Container fluid className={classNames.headerContainer}>
+        <WeddingLogo className={classNames.headerLogo} isClickable />
         <Group gap="xs" visibleFrom="md">
           {menus}
         </Group>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="md" />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="md" size={isExtraSmallScreen ? "sm" : "md"} />
       </Container>
     </header>
   );

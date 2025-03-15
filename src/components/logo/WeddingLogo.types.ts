@@ -1,5 +1,5 @@
 export type WeddingLogoProps = {
-  fontSize: string;
-  width?: number;
+  className?: string;
   isClickable?: boolean;
+  isSingleLine?: boolean;
 };
