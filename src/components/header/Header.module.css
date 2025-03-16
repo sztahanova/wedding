@@ -49,3 +49,7 @@
     color: var(--mantine-color-white);
   }
 }
+
+.header-burger-menu-item-label {
+  font-size: var(--mantine-font-size-md);
+}

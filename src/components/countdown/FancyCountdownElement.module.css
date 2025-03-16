@@ -4,11 +4,6 @@
   height: 15vw;
   display: flex;
   flex-direction: column;
-
-  @media only screen and (max-width: 1180px) {
-    font-size: 10rem;
-    padding: 2rem;
-  }
 }
 
 .countdown-element-value {
@@ -16,7 +11,7 @@
   font-size: 8vw;
   text-align: center;
   font-weight: 800;
-  line-height: 2rem;
+  line-height: 8vw;
 }
 
 .countdown-element-label {

@@ -1,8 +1,9 @@
-import { Burger, Container, Group, Overlay } from "@mantine/core";
+import { Burger, Container, Group, Menu, Overlay } from "@mantine/core";
 import { useDisclosure, useMediaQuery } from "@mantine/hooks";
-import { useMemo } from "react";
+import { IconBed, IconHelpHexagon, IconHome, IconLibraryPhoto, IconPencilHeart, IconRouteX } from "@tabler/icons-react";
+import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   ACCOMMODATION_LINK,
   EXTRA_SMALL_SCREEN_BREAKPOINT,
@@ -13,23 +14,29 @@ import {
   TRAVEL_LINK,
 } from "../../Globals";
 import { LanguageChooserMenu } from "../language-chooser/LanguageChooserMenu";
+import { useLanguageChooser } from "../language-chooser/useLanguageChooser";
 import { WeddingLogo } from "../logo/WeddingLogo";
 import classNames from "./Header.module.css";
+
+const ICON_STROKE_WIDTH = 1;
 
 export const Header = () => {
   const { t } = useTranslation();
   const [opened, { toggle }] = useDisclosure(false);
-
   const isExtraSmallScreen = useMediaQuery(`(max-width: ${EXTRA_SMALL_SCREEN_BREAKPOINT}px)`);
+  const navigate = useNavigate();
+  const { languageMenuItems } = useLanguageChooser();
+
+  const navigateToPageFactory = useCallback((link: string) => () => navigate(link), [navigate]);
 
   const pages = useMemo(
     () => [
-      { label: t("home"), link: HOME_LINK },
-      { label: t("travel"), link: TRAVEL_LINK },
-      { label: t("accommodation"), link: ACCOMMODATION_LINK },
-      { label: t("faq"), link: FAQ_LINK },
-      { label: t("gallery"), link: GALLERY_LINK },
-      { label: t("rsvp"), link: RSVP_LINK },
+      { label: t("home"), link: HOME_LINK, icon: <IconHome strokeWidth={ICON_STROKE_WIDTH} /> },
+      { label: t("travel"), link: TRAVEL_LINK, icon: <IconRouteX strokeWidth={ICON_STROKE_WIDTH} /> },
+      { label: t("accommodation"), link: ACCOMMODATION_LINK, icon: <IconBed strokeWidth={ICON_STROKE_WIDTH} /> },
+      { label: t("faq"), link: FAQ_LINK, icon: <IconHelpHexagon strokeWidth={ICON_STROKE_WIDTH} /> },
+      { label: t("gallery"), link: GALLERY_LINK, icon: <IconLibraryPhoto strokeWidth={ICON_STROKE_WIDTH} /> },
+      { label: t("rsvp"), link: RSVP_LINK, icon: <IconPencilHeart strokeWidth={ICON_STROKE_WIDTH} /> },
     ],
     [t],
   );
@@ -55,7 +62,22 @@ export const Header = () => {
         <Group gap="xs" visibleFrom="md">
           {menus}
         </Group>
-        <Burger opened={opened} onClick={toggle} hiddenFrom="md" size={isExtraSmallScreen ? "sm" : "md"} />
+        <Menu classNames={{ itemLabel: classNames.headerBurgerMenuItemLabel }}>
+          <Menu.Target>
+            <Burger opened={opened} onClick={toggle} hiddenFrom="md" size={isExtraSmallScreen ? "sm" : "md"} />
+          </Menu.Target>
+          <Menu.Dropdown>
+            {pages.map(({ label, link, icon }) => {
+              return (
+                <Menu.Item key={link} leftSection={icon} onClick={navigateToPageFactory(link)} className="">
+                  {label}
+                </Menu.Item>
+              );
+            })}
+            <Menu.Divider />
+            {languageMenuItems}
+          </Menu.Dropdown>
+        </Menu>
       </Container>
     </header>
   );

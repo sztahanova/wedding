@@ -16,6 +16,7 @@
   "dependencies": {
     "@mantine/core": "^7.17.1",
     "@mantine/hooks": "^7.17.1",
+    "@tabler/icons-react": "^3.31.0",
     "date-fns": "^4.1.0",
     "flag-icons": "^7.3.2",
     "gh-pages": "^6.3.0",

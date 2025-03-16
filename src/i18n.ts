@@ -5,7 +5,11 @@ import en from "./translation/en.json";
 import hu from "./translation/hu.json";
 import ro from "./translation/ro.json";
 
-export const I18N_SUPPORTED_LANGUAGES = ["hu", "en", "ro"];
+export const I18N_SUPPORTED_LANGUAGES = [
+  { languageCode: "hu", label: "Magyar" },
+  { languageCode: "en", label: "English" },
+  { languageCode: "ro", label: "Română" },
+];
 
 const resources = {
   en,
@@ -16,7 +20,7 @@ const resources = {
 const i18nOptions: InitOptions = {
   debug: true,
   resources,
-  supportedLngs: I18N_SUPPORTED_LANGUAGES,
+  supportedLngs: I18N_SUPPORTED_LANGUAGES.map(({ languageCode }) => languageCode),
   fallbackLng: "hu",
   returnObjects: true,
   react: {

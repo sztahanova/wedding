@@ -1,0 +1,30 @@
+.under-construction-root {
+  position: relative;
+  background-image: url("/photos/Zita_Peti_Albania_20230810.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.under-construction-container {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.under-construction-inner-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.under-construction-text {
+  font-size: 6vw;
+  font-weight: 600;
+  color: darkgreen;
+}
