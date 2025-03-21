@@ -1,4 +1,17 @@
-.root {
+.home-page-root {
+  position: relative;
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
+  background-image: url("/photos/Zita_Peti_Albania_20230810.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.home-page-overlay {
+  height: 100%;
+  background-color: white;
 }

@@ -9,7 +9,7 @@ export const UnderConstruction = () => {
 
   return (
     <div className={classNames.underConstructionRoot}>
-      <Overlay color="#fff" opacity={0.9} zIndex={1} />
+      <Overlay opacity={0.3} zIndex={1} className={classNames.underConstructionOverlay} />
 
       <Header />
 

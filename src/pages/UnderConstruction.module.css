@@ -1,10 +1,22 @@
 .under-construction-root {
   position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
   background-image: url("/photos/Zita_Peti_Albania_20230810.jpg");
   background-size: cover;
   background-position: center;
-  width: 100%;
-  height: 100vh;
+
+  @media only screen and (max-width: 640px) {
+    height: calc(100vh - 48px);
+  }
+}
+
+.under-construction-overlay {
+  background-color: white;
 }
 
 .under-construction-container {

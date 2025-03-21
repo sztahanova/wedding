@@ -3,7 +3,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import { IconBed, IconHelpHexagon, IconHome, IconLibraryPhoto, IconPencilHeart, IconRouteX } from "@tabler/icons-react";
 import { useCallback, useMemo } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import {
   ACCOMMODATION_LINK,
   EXTRA_SMALL_SCREEN_BREAKPOINT,
@@ -24,9 +24,9 @@ export const Header = () => {
   const { t } = useTranslation();
   const [opened, { toggle }] = useDisclosure(false);
   const isExtraSmallScreen = useMediaQuery(`(max-width: ${EXTRA_SMALL_SCREEN_BREAKPOINT}px)`);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const { languageMenuItems } = useLanguageChooser();
-
   const navigateToPageFactory = useCallback((link: string) => () => navigate(link), [navigate]);
 
   const pages = useMemo(
@@ -44,18 +44,18 @@ export const Header = () => {
   const menus = useMemo(
     () => [
       ...pages.map(({ label, link }) => (
-        <Link key={label} to={link} className={classNames.link}>
+        <Link key={label} to={link} className={`${classNames.headerLink} ${link === pathname ? classNames.headerSelectedLink : null}`}>
           {label}
         </Link>
       )),
       <LanguageChooserMenu key="language-chooser-menu" />,
     ],
-    [pages],
+    [pages, pathname],
   );
 
   return (
     <header className={classNames.headerRoot}>
-      <Overlay color="gold" opacity={0.25} zIndex={1} style={{ backgroundColor: "gold" }} />
+      <Overlay opacity={0.8} zIndex={1} className={classNames.headerOverlay} />
 
       <Container fluid className={classNames.headerContainer}>
         <WeddingLogo className={classNames.headerLogo} isClickable />

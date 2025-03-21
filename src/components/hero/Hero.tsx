@@ -1,4 +1,4 @@
-import { Center, Overlay, Text } from "@mantine/core";
+import { Center, Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { useTranslation } from "react-i18next";
 import { SMALL_SCREEN_BREAKPOINT, WEDDING_DATE } from "../../Globals";
@@ -13,8 +13,6 @@ export const Hero = () => {
 
   return (
     <div className={classNames.heroRoot}>
-      <Overlay color="#fff" opacity={0.8} zIndex={1} />
-
       <Center className={classNames.heroContainer}>
         <WeddingLogo className={classNames.heroWeddingLogo} isSingleLine={isLargeScreen} />
         <Text
