@@ -1,6 +1,8 @@
 {
   "translation": {
     "accommodation": "Cazare",
+    "churchWedding": "Cununia religioasă",
+    "civilWedding": "Cununia civilă",
     "countdown": "Au mai rămas {{months}} $t(months, {\"count\": {{months}} }), {{weeks}} $t(weeks, {\"count\": {{weeks}} }), {{days}} $t(days, {\"count\": {{days}} }), {{hours}} $t(hours, {\"count\": {{hours}} })!",
     "days_few": "zile",
     "days_one": "zi",
@@ -12,9 +14,12 @@
     "months_few": "luni",
     "months_one": "lună",
     "rsvp": "Confirmare prezență",
+    "takingPictures": "Fotografii de grup",
+    "tbd": "În curând...",
     "TgM": "Târgu Mureș",
     "travel": "Cum ajung?",
     "underConstruction": "Încă lucrăm pe această pagină :)",
+    "weddingReception": "Nuntă",
     "weeks_few": "săptămâni",
     "weeks_one": "săptămână",
     "ZitaAndPeti": "Zita și Péter"

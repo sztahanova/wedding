@@ -1,6 +1,8 @@
 {
   "translation": {
     "accommodation": "Szállás",
+    "churchWedding": "Egyházi esküvő",
+    "civilWedding": "Polgári esküvő",
     "countdown": "Még {{months}} $t(months, {\"count\": {{months}} }), {{weeks}} $t(weeks, {\"count\": {{weeks}} }), {{days}} $t(days, {\"count\": {{days}} }), {{hours}} $t(hours, {\"count\": {{hours}} })!",
     "days": "nap",
     "faq": "GYIK",
@@ -9,9 +11,12 @@
     "hours": "óra",
     "months": "hónap",
     "rsvp": "Visszaigazolás",
+    "takingPictures": "Közös fényképezkedés",
+    "tbd": "Hamarosan...",
     "TgM": "Marosvásárhely",
     "travel": "Utazás",
     "underConstruction": "Ezen az oldalon még dolgozunk :)",
+    "weddingReception": "Lagzi",
     "weeks": "hét",
     "ZitaAndPeti": "Zita és Péter"
   }
