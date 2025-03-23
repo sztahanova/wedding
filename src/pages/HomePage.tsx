@@ -8,9 +8,16 @@ export const HomePage = () => {
   return (
     <div className={classNames.homePageRoot}>
       <Overlay opacity={0.33} zIndex={0} className={classNames.homePageOverlay} />
-      <Header />
-      <Hero />
-      <WeddingTimeline />
+      <div className={classNames.homePageContainerFirst}>
+        <Header />
+        <Hero />
+      </div>
+      <div className={classNames.homePageContainerSecond}>
+        <WeddingTimeline />
+      </div>
+      <div className={classNames.homePageContainerThird}>
+        <div style={{ height: "500px", width: "100%" }} />
+      </div>
     </div>
   );
 };

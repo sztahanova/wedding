@@ -5,11 +5,30 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
-  padding-bottom: 50px;
+}
 
+.home-page-container-first {
   background-image: url("/photos/Zita_Peti_Albania_20230810.jpg");
   background-size: cover;
   background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home-page-container-second {
+  background-image: url("/photos/Zita_Peti_Albania_Gjirokaster_20230807.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home-page-container-third {
+  background-image: url("/photos/Zita_Peti_Szlovenia_Ljubljana_20190730.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 .home-page-overlay {
