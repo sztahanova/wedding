@@ -18,3 +18,5 @@ export const TRAVEL_LINK = "/travel";
 
 export const ZITA_PETI_ALBANIA_LANDSCAPE = "/photos/Zita_Peti_Albania_20230810.jpg";
 export const ZITA_PETI_ALBANIA_PORTRAIT = "/photos/Zita_Peti_Albania_20230810_640x922.jpg";
+export const ZITA_PETI_ALBANIA_GJIROKASTER = "/photos/Zita_Peti_Albania_Gjirokaster_20230807.jpg";
+export const ZITA_PETI_SZLOVENIA_LJUBLJANA = "/photos/Zita_Peti_Szlovenia_Ljubljana_20190730.jpg";
