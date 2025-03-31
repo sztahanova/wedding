@@ -4,11 +4,13 @@ import { ACCOMMODATION_LINK, FAQ_LINK, GALLERY_LINK, HOME_LINK, RSVP_LINK, TRAVE
 import { HomePage } from "./pages/HomePage";
 import { OnePage } from "./pages/OnePage";
 import { UnderConstruction } from "./pages/UnderConstruction";
+import { ParallaxTest } from "./ParallaxTest";
 
 export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<OnePage />} />
+      <Route path="/test" element={<ParallaxTest />} />
       <Route path={HOME_LINK} element={<HomePage />} />
       <Route path={TRAVEL_LINK} element={<UnderConstruction />} />
       <Route path={ACCOMMODATION_LINK} element={<UnderConstruction />} />

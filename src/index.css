@@ -112,6 +112,8 @@ code {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-perspective-origin-x: 100%;
+  font-size: 5rem;
+  font-weight: 800;
 }
 
 .parallax__layer {
@@ -130,10 +132,22 @@ code {
 
 .parallax__layer--base {
   transform: translateZ(0);
+  z-index: 4;
 }
 
 .parallax__layer--back {
   /* transform: translateZ(-1px); */
   /* 1 + (translateZ * -1) / perspective */
   transform: translateZ(-1px) scale(2);
+  z-index: 3;
+}
+
+.parallax__layer--fore {
+  transform: translateZ(1px) scale(0);
+  z-index: 1;
+}
+
+.parallax__layer--deep {
+  transform: translateZ(-2px) scale(3);
+  z-index: 2;
 }
