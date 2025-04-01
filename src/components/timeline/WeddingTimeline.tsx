@@ -1,43 +1,69 @@
 import { Text } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconBuildingChurch, IconConfetti, IconContract, IconZzz } from "@tabler/icons-react";
 import { TFunction } from "i18next";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { VerticalTimeline, VerticalTimelineElement, VerticalTimelineElementProps } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { useConfetti } from "../../hooks/useConfetti";
 import classNames from "./WeddingTimeline.module.css";
-
-const commonPropsFactory = (t: TFunction, hasContent = true): Partial<VerticalTimelineElementProps> => ({
-  date: hasContent ? t("tbd") : undefined,
-  className: classNames.weddingTimelineElement,
-  iconClassName: classNames.weddingTimelineIcon,
-  iconStyle: {
-    boxShadow: "0 0 0 2px gold, inset 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 0 4px rgba(0, 0, 0, 0.05)",
-  },
-  ...(hasContent
-    ? {
-        contentStyle: {
-          backgroundColor: "rgba(255, 215, 0, 0.8)",
-          color: "darkgreen",
-          boxShadow: "0 3px 0 rgba(0, 100, 0, 0.4)",
-          display: "flex",
-          flexDirection: "column",
-        },
-        contentArrowStyle: {
-          borderRight: "7px solid rgba(255, 215, 0, 0.6)",
-        },
-      }
-    : {}),
-  intersectionObserverProps: { triggerOnce: false },
-});
 
 export const WeddingTimeline = () => {
   const { t } = useTranslation();
+  const { fireConfetti } = useConfetti();
+  const isLargeScreen = useMediaQuery("only screen and (min-width: 1170px)") ?? true;
+
+  const throwConfettiWhenInView = useCallback(
+    (inView: boolean) => {
+      if (inView) {
+        fireConfetti();
+      }
+    },
+    [fireConfetti],
+  );
+
+  const timelineElementPropsFactory = useCallback(
+    (t: TFunction, hasContent = true, throwConfetti = false): Partial<VerticalTimelineElementProps> => ({
+      date: hasContent ? t("tbd") : undefined,
+      className: classNames.weddingTimelineElement,
+      iconClassName: classNames.weddingTimelineIcon,
+      iconStyle: {
+        width: isLargeScreen ? 100 : 80,
+        height: isLargeScreen ? 100 : 80,
+        marginLeft: isLargeScreen ? -50 : undefined,
+        background: "darkgreen",
+        color: "gold",
+        boxShadow: "0 0 0 2px gold, inset 0 1px 0 rgba(0, 0, 0, 0.08), 0 2px 0 4px rgba(0, 0, 0, 0.05)",
+      },
+      ...(hasContent
+        ? {
+            contentStyle: {
+              backgroundColor: "rgba(255, 215, 0, 0.8)",
+              color: "darkgreen",
+              boxShadow: "0 3px 0 rgba(0, 100, 0, 0.4)",
+              display: "flex",
+              flexDirection: "column",
+              marginLeft: isLargeScreen ? undefined : 100,
+            },
+            contentArrowStyle: {
+              borderRight: "7px solid rgba(255, 215, 0, 0.6)",
+            },
+          }
+        : {}),
+      intersectionObserverProps: {
+        triggerOnce: false,
+        onChange: throwConfetti ? throwConfettiWhenInView : undefined,
+      },
+    }),
+    [isLargeScreen, throwConfettiWhenInView],
+  );
 
   return (
     <div style={{ padding: "10rem 0" }}>
       <VerticalTimeline lineColor="darkgreen" layout="2-columns" className={classNames.weddingTimeline}>
         <VerticalTimelineElement
-          {...commonPropsFactory(t, false)}
+          {...timelineElementPropsFactory(t, false)}
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
               <text y=".65em" font-size="150" fill="gold">
@@ -46,7 +72,7 @@ export const WeddingTimeline = () => {
             </svg>
           }
         />
-        <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconContract />}>
+        <VerticalTimelineElement {...timelineElementPropsFactory(t)} icon={<IconContract />}>
           <Text span className={classNames.weddingTimelineElementTitle}>
             {t("civilWedding")}
           </Text>
@@ -63,7 +89,16 @@ export const WeddingTimeline = () => {
             />
           </div>
         </VerticalTimelineElement>
-        <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconBuildingChurch />}>
+        {/* <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconCamera />}>
+              <Text span className={classNames.weddingTimelineElementTitle}>
+                {t("takingPictures")}
+              </Text>
+              <Text span className={classNames.weddingTimelineElementSubtitle}>
+                {t("tbd")}
+              </Text>
+              <p></p>
+            </VerticalTimelineElement> */}
+        <VerticalTimelineElement {...timelineElementPropsFactory(t)} icon={<IconBuildingChurch />}>
           <Text span className={classNames.weddingTimelineElementTitle} style={{ fontSize: "2rem" }}>
             {t("churchWedding")}
           </Text>
@@ -80,16 +115,7 @@ export const WeddingTimeline = () => {
             />
           </div>
         </VerticalTimelineElement>
-        {/* <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconCamera />}>
-          <Text span className={classNames.weddingTimelineElementTitle}>
-            {t("takingPictures")}
-          </Text>
-          <Text span className={classNames.weddingTimelineElementSubtitle}>
-            {t("tbd")}
-          </Text>
-          <p></p>
-        </VerticalTimelineElement> */}
-        <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconConfetti />}>
+        <VerticalTimelineElement {...timelineElementPropsFactory(t, true, true)} icon={<IconConfetti />}>
           <Text span className={classNames.weddingTimelineElementTitle}>
             {t("weddingReception")}
           </Text>
@@ -106,7 +132,7 @@ export const WeddingTimeline = () => {
             />
           </div>
         </VerticalTimelineElement>
-        <VerticalTimelineElement {...commonPropsFactory(t, false)} icon={<IconZzz />} />
+        <VerticalTimelineElement {...timelineElementPropsFactory(t, false)} icon={<IconZzz />} />
       </VerticalTimeline>
     </div>
   );
