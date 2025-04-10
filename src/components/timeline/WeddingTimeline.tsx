@@ -1,16 +1,19 @@
 import { Text } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import { IconBuildingChurch, IconConfetti, IconContract, IconZzz } from "@tabler/icons-react";
-import { TFunction } from "i18next";
-import { useCallback } from "react";
+import { DetailedHTMLProps, IframeHTMLAttributes, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { VerticalTimeline, VerticalTimelineElement, VerticalTimelineElementProps } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { useConfetti } from "../../hooks/useConfetti";
 import classNames from "./WeddingTimeline.module.css";
+import { Places } from "./WeddingTimeline.types";
+
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+const VERTICAL_TIMELINE_ELEMENT_CONTENT_BG = "rgba(255, 215, 0, 0.8)";
 
 export const WeddingTimeline = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { fireConfetti } = useConfetti();
   const isLargeScreen = useMediaQuery("only screen and (min-width: 1170px)") ?? true;
 
@@ -24,10 +27,10 @@ export const WeddingTimeline = () => {
   );
 
   const timelineElementPropsFactory = useCallback(
-    (t: TFunction, hasContent = true, throwConfetti = false): Partial<VerticalTimelineElementProps> => ({
-      date: hasContent ? t("tbd") : undefined,
+    (hasContent = true, throwConfetti = false): Partial<VerticalTimelineElementProps> => ({
       className: classNames.weddingTimelineElement,
       iconClassName: classNames.weddingTimelineIcon,
+      dateClassName: classNames.weddingTimelineElementDate,
       iconStyle: {
         width: isLargeScreen ? 100 : 80,
         height: isLargeScreen ? 100 : 80,
@@ -39,7 +42,7 @@ export const WeddingTimeline = () => {
       ...(hasContent
         ? {
             contentStyle: {
-              backgroundColor: "rgba(255, 215, 0, 0.8)",
+              backgroundColor: VERTICAL_TIMELINE_ELEMENT_CONTENT_BG,
               color: "darkgreen",
               boxShadow: "0 3px 0 rgba(0, 100, 0, 0.4)",
               display: "flex",
@@ -47,7 +50,8 @@ export const WeddingTimeline = () => {
               marginLeft: isLargeScreen ? undefined : 100,
             },
             contentArrowStyle: {
-              borderRight: "7px solid rgba(255, 215, 0, 0.6)",
+              border: "16px solid transparent",
+              borderRight: `16px solid ${VERTICAL_TIMELINE_ELEMENT_CONTENT_BG}`,
             },
           }
         : {}),
@@ -59,11 +63,22 @@ export const WeddingTimeline = () => {
     [isLargeScreen, throwConfettiWhenInView],
   );
 
+  const embeddedMapFactory = useCallback(
+    (place: Places): DetailedHTMLProps<IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement> => ({
+      src: `https://www.google.com/maps/embed/v1/place?q=place_id:${place}&key=${GOOGLE_MAPS_API_KEY}&language=${i18n.language}`,
+      className: classNames.weddingTimelineElementMap,
+      allowFullScreen: true,
+      loading: "lazy",
+      referrerPolicy: "no-referrer-when-downgrade",
+    }),
+    [i18n.language],
+  );
+
   return (
     <div style={{ padding: "10rem 0" }}>
       <VerticalTimeline lineColor="darkgreen" layout="2-columns" className={classNames.weddingTimeline}>
         <VerticalTimelineElement
-          {...timelineElementPropsFactory(t, false)}
+          {...timelineElementPropsFactory(false)}
           icon={
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
               <text y=".65em" font-size="150" fill="gold">
@@ -72,7 +87,18 @@ export const WeddingTimeline = () => {
             </svg>
           }
         />
-        <VerticalTimelineElement {...timelineElementPropsFactory(t)} icon={<IconContract />}>
+        <VerticalTimelineElement {...timelineElementPropsFactory()} date="12:30" icon={<IconBuildingChurch />}>
+          <Text span className={classNames.weddingTimelineElementTitle} style={{ fontSize: "2rem" }}>
+            {t("churchWedding")}
+          </Text>
+          <Text span className={classNames.weddingTimelineElementSubtitle}>
+            {t("tbd")}
+          </Text>
+          <div className={classNames.weddingTimelineElementMapContainer}>
+            <iframe {...embeddedMapFactory(Places.CHURCH)} />
+          </div>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement {...timelineElementPropsFactory()} date="14:00" icon={<IconContract />}>
           <Text span className={classNames.weddingTimelineElementTitle}>
             {t("civilWedding")}
           </Text>
@@ -80,16 +106,10 @@ export const WeddingTimeline = () => {
             {t("tbd")}
           </Text>
           <div className={classNames.weddingTimelineElementMapContainer}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.8667615654073!2d24.566203173459563!3d46.546942801311616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474bb7ee9e5a1cdb%3A0x5fa2b06267b5b11!2zQ2FzYSBDxINzxIN0b3JpaWxvcg!5e0!3m2!1sen!2shu!4v1742742996653!5m2!1sen!2shu"
-              className={classNames.weddingTimelineElementMap}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <iframe {...embeddedMapFactory(Places.COURTHOUSE)} />
           </div>
         </VerticalTimelineElement>
-        {/* <VerticalTimelineElement {...commonPropsFactory(t)} icon={<IconCamera />}>
+        {/* <VerticalTimelineElement {...commonPropsFactory()} icon={<IconCamera />}>
               <Text span className={classNames.weddingTimelineElementTitle}>
                 {t("takingPictures")}
               </Text>
@@ -98,24 +118,7 @@ export const WeddingTimeline = () => {
               </Text>
               <p></p>
             </VerticalTimelineElement> */}
-        <VerticalTimelineElement {...timelineElementPropsFactory(t)} icon={<IconBuildingChurch />}>
-          <Text span className={classNames.weddingTimelineElementTitle} style={{ fontSize: "2rem" }}>
-            {t("churchWedding")}
-          </Text>
-          <Text span className={classNames.weddingTimelineElementSubtitle}>
-            {t("tbd")}
-          </Text>
-          <div className={classNames.weddingTimelineElementMapContainer}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2744.9033739490887!2d24.55804327582189!3d46.52981386171284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474bb7ba399790b9%3A0x58af3a61dce154a6!2sK%C3%B6vesdomb%20Reformed%20Protestant%20Church!5e0!3m2!1sen!2shu!4v1742722864180!5m2!1sen!2shu&language=hu"
-              className={classNames.weddingTimelineElementMap}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement {...timelineElementPropsFactory(t, true, true)} icon={<IconConfetti />}>
+        <VerticalTimelineElement {...timelineElementPropsFactory(true, true)} date="16:00" icon={<IconConfetti />}>
           <Text span className={classNames.weddingTimelineElementTitle}>
             {t("weddingReception")}
           </Text>
@@ -123,16 +126,10 @@ export const WeddingTimeline = () => {
             {t("tbd")}
           </Text>
           <div className={classNames.weddingTimelineElementMapContainer}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2743.099939630061!2d24.56545167582388!3d46.565488959289965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x474bb733af387ccb%3A0x4469061df0da3eb!2sTHE%20ISLAND%20Green%20garden%20Events!5e0!3m2!1sen!2shu!4v1742743568111!5m2!1sen!2shu"
-              className={classNames.weddingTimelineElementMap}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <iframe {...embeddedMapFactory(Places.RECEPTION)} />
           </div>
         </VerticalTimelineElement>
-        <VerticalTimelineElement {...timelineElementPropsFactory(t, false)} icon={<IconZzz />} />
+        <VerticalTimelineElement {...timelineElementPropsFactory(false)} icon={<IconZzz />} />
       </VerticalTimeline>
     </div>
   );

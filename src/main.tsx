@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router";
 import { ParallaxProvider } from "react-scroll-parallax";
+import "react-vertical-timeline-component/style.min.css";
 import { App } from "./App.tsx";
 import { initI18n } from "./i18n.ts";
 import "./index.css";
