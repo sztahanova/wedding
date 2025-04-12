@@ -63,6 +63,8 @@ export const WeddingTimeline = () => {
     [isLargeScreen, throwConfettiWhenInView],
   );
 
+  console.log({ GOOGLE_MAPS_API_KEY });
+
   const embeddedMapFactory = useCallback(
     (place: Places): DetailedHTMLProps<IframeHTMLAttributes<HTMLIFrameElement>, HTMLIFrameElement> => ({
       src: `https://www.google.com/maps/embed/v1/place?q=place_id:${place}&key=${GOOGLE_MAPS_API_KEY}&language=${i18n.language}`,
