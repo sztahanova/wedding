@@ -2,7 +2,11 @@
   "translation": {
     "accommodation": "Szállás",
     "churchWedding": "Egyházi esküvő",
+    "churchWeddingPlace": "Kövesdombi Református Templom",
+    "churchWeddingAddress": "Marosvásárhely, Suceava utca 41.",
     "civilWedding": "Polgári esküvő",
+    "civilWeddingPlace": "Házasságkötő Terem",
+    "civilWeddingAddress": "Marosvásárhelyi Vár, Bernády György tér",
     "countdown": "Még {{months}} $t(months, {\"count\": {{months}} }), {{weeks}} $t(weeks, {\"count\": {{weeks}} }), {{days}} $t(days, {\"count\": {{days}} }), {{hours}} $t(hours, {\"count\": {{hours}} })!",
     "days": "nap",
     "faq": "GYIK",
@@ -17,6 +21,8 @@
     "travel": "Utazás",
     "underConstruction": "Ezen az oldalon még dolgozunk :)",
     "weddingReception": "Lagzi",
+    "weddingReceptionPlace": "The Island - Green Garden Events",
+    "weddingReceptionAddress": "Marosszentanna, Tutaj utca",
     "weeks": "hét",
     "ZitaAndPeti": "Zita és Péter"
   }

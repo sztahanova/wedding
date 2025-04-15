@@ -1,0 +1,23 @@
+.wedding-timeline-element-title {
+  font-size: 2.5rem;
+}
+
+.wedding-timeline-element-subtitle {
+  font-size: 2rem;
+}
+
+.wedding-timeline-element-address {
+  font-size: 1.5rem;
+}
+
+.wedding-timeline-element-map-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.wedding-timeline-element-map {
+  min-height: 320px;
+  width: 100%;
+  height: 100%;
+}

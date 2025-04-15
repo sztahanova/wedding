@@ -2,7 +2,11 @@
   "translation": {
     "accommodation": "Cazare",
     "churchWedding": "Cununia religioasă",
+    "churchWeddingPlace": "Biserica Reformată din Dâmbul Pietros",
+    "churchWeddingAddress": "Târgu Mureș, strada Suceava nr. 41",
     "civilWedding": "Cununia civilă",
+    "civilWeddingPlace": "Casa Căsătoriilor",
+    "civilWeddingAddress": "Cetatea Medievală din Târgu Mureș, Piața Bernády György",
     "countdown": "Au mai rămas {{months}} $t(months, {\"count\": {{months}} }), {{weeks}} $t(weeks, {\"count\": {{weeks}} }), {{days}} $t(days, {\"count\": {{days}} }), {{hours}} $t(hours, {\"count\": {{hours}} })!",
     "days_few": "zile",
     "days_one": "zi",
@@ -20,6 +24,8 @@
     "travel": "Cum ajung?",
     "underConstruction": "Încă lucrăm pe această pagină :)",
     "weddingReception": "Nuntă",
+    "weddingReceptionPlace": "The Island - Green Garden Events",
+    "weddingReceptionAddress": "Sântana de Mureș, strada Plutelor",
     "weeks_few": "săptămâni",
     "weeks_one": "săptămână",
     "ZitaAndPeti": "Zita și Péter"
