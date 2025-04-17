@@ -10,8 +10,12 @@
 .home-page-image-container {
   height: 100%;
   width: 100%;
-  background-size: cover;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .home-page-container-first {
@@ -34,4 +38,24 @@
 .home-page-overlay {
   height: 100%;
   background-color: white;
+}
+
+.home-page-button-container {
+  background-color: rgba(0, 100, 0, 0.8);
+  padding: 15vh 0;
+  z-index: 2;
+}
+
+.home-page-button {
+  color: darkgreen;
+
+  @mixin hover {
+    background-color: rgb(255, 236, 128);
+    color: darkgreen;
+  }
+
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: rgb(255, 236, 128);
+    color: darkgreen;
+  }
 }
